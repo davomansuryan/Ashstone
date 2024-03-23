@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import HeaderTop from './components/HeaderTop/HeaderTop'
+import HeaderNav from './components/HeaderNav/HeaderNav';
+import Posts from './components/Posts/Posts';
 import './App.css';
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HeaderTop searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+      <HeaderNav />
+      <Posts searchTerm={searchTerm} />
+    </>
   );
 }
 
